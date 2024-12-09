@@ -8,9 +8,17 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'custom': '0px 1px 0px 0px #E1E3E5',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        poppins: ["Poppins", "sans-serif"], 
+        roboto: ["Roboto", "sans-serif"],
       },
     },
   },
