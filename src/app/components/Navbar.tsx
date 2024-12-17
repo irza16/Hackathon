@@ -139,7 +139,9 @@ export default function Navbar () {
 
                <Link className = "Nav_links w-10 h-[15px] font-medium font-inter text-sm leading-[15.4px] text-[#636270]  " href ="/Shop">Shop</Link>
 
-               <Link className = "Nav_links w-[53px] h-[15px] font-medium font-inter text-sm leading-[15.4px] text-[#636270]  " href ="/Product">Product</Link>
+               <Link className = "Nav_links w-[53px] h-[15px] font-medium font-inter text-sm leading-[15.4px] text-[#636270]" 
+               href =
+               "/Product">Product</Link>
 
 
                <Link className = "Nav_links w-[42px] h-[15px] font-medium font-inter text-sm leading-[15.4px] text-[#636270]  " href ="/Pages">Pages</Link>

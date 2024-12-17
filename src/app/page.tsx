@@ -4,6 +4,9 @@ import Feature from '../app/components/Feature';
 import Categories from '../app/components/Categories';
 import Hotcategory from '../app/components/Hotcategory';
 import Ourproducts from '../app/components/Ourproducts';
+import { FeaturedProducts } from './components/Productdata';
+
+
 
 
 export default function Home () {
@@ -13,7 +16,7 @@ export default function Home () {
       
       <Header />
       <Logo/>
-      <Feature />
+      <Feature heading="Featured Products" products={FeaturedProducts} top ="1270px"/>
       <Categories />
       <Hotcategory />
       <Ourproducts />
