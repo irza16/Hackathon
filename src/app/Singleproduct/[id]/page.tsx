@@ -3,7 +3,7 @@ import { R2Products } from "@/app/components/Productdata";
 import { R3Products } from "@/app/components/Productdata";
 import Image from "next/image";
 import cartlogo from "@/app/assets/Buy 3.png";
-// Combine all rows of products temporarily
+
 const AllProduct = [...AllProducts, ...R2Products, ...R3Products];
 
 // Dynamic Product Page

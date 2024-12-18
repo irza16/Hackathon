@@ -7,9 +7,9 @@ interface Product {
   textcolor?: string;
   price: number;
   oldPrice: number | null;
-  image: any;
+  image: boolean;
   badge?: { text: string; color: string };
-  cartIcon: any;
+  cartIcon: boolean;
   cartBg: string;
 }
 

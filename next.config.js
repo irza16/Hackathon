@@ -5,6 +5,6 @@ const config = {
 
 module.exports = {
   experimental: {
-    turbo: true,
+    turbo: {},
   },
 };
