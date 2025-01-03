@@ -11,7 +11,7 @@ import chair7 from '../assets/Image (9).png';
 
 export default function Ourproducts() {
     return (
-        <div className = "w-[1320px] h-[919px] absolute top-[3425px] left-[307px]">
+        <div className = "hidden  xl:block w-[1320px] h-[919px] absolute top-[3425px] xl:left-[180px] 2xl:left-[307px]">
 
 <div className = "w-[205px] h-[35px] absolute top-4 left-[557px]">
 <span className = "font-inter text-[32px] font-semibold leading-[35.2px] text-[#272343]"> Our Products </span>

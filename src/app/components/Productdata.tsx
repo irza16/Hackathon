@@ -6,6 +6,7 @@ import Image5 from "../assets/Image (5).png";
 import Image6 from "../assets/Image (6).png";
 import Image8 from "../assets/Image (8).png";
 import Image9 from "../assets/Image (9).png";
+import Image10 from "../assets/Image (4).png";
 import BuyIcon from "../assets/Buy 3.png";
 import CartIcon from "../assets/Group.png";
 
@@ -102,13 +103,22 @@ export const R3Products = [
     name: "Library Stool Chair",
     price: 20,
     oldPrice: null,
-    image: Image4,
+    image: Image10,
     badge: { text: "New", color: "#01AD5A" },
     cartIcon: BuyIcon,
     cartBg: "#029FAE",
   },
-  AllProducts.find((product) => product.id === 2),
-  AllProducts.find((product) => product.id === 3),
+
+  {
+    ...AllProducts.find((product) => product.id === 2),
+    id:10,
+  },
+
+  {
+    ...AllProducts.find((product) => product.id === 3),
+    id:11,
+  },
+
   {
     id: 12,
     name: "Library Stool Chair",

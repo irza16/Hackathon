@@ -46,8 +46,8 @@ export default function Product () {
 type = "Email Address"
 placeholder = "Email address..."
 
-className = "Input text w-[117px] h-[19px] absolute left-[15px] font-roboto font-semibold text-base leading-[18.75px] text-[#1E2832] opacity-50"> 
-</input>
+className = "Input text w-[117px] h-[19px] absolute left-[15px] font-roboto font-semibold text-base leading-[18.75px] text-[#1E2832] opacity-50" 
+/>
 
 <div className = " w-[643px] absolute top-8 border-spacing-[2px] border-[#000000] border-2"></div>
 

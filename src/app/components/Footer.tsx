@@ -10,7 +10,7 @@ import Logos from '../assets/Logos.png';
 
 export default function Footer() {
     return (
-        <footer className ="w-[1920px] h-[418px] relative top-[4480px] -left-3">
+        <footer className =" w-[599px] h-[1200px] xl:w-[1920px] xl:h-[418px] relative top-[3480px] xl:top-[4480px] -left-60 xl:-left-20 2xl:-left-3 flex flex-col">
 
 
 <div className = "w-[350px] h-[198px] absolute top-20 left-[300px] flex flex-col  gap-6">
@@ -76,7 +76,7 @@ export default function Footer() {
 
 
 
-<div className = "w-[105px] h-[203px] relative top-20 left-[747px] flex flex-col  gap-5">
+<div className = "w-[105px] h-[203px] absolute top-[360px] xl:top-20  left-[299px] xl:left-[717px] flex flex-col  gap-5">
 
 
     <span className ='font-inter font-medium text-sm leading-[15.4px] tracking-[0.84px] text-[#9A9CAA]'> CATEGORY </span>
@@ -103,7 +103,7 @@ export default function Footer() {
 </div>
 
 
-<div className = "w-[156px] h-[143px] absolute top-20 left-[971.5px]  flex flex-col gap-5">
+<div className = "w-[156px] h-[143px] absolute top-[645px] xl:top-20 left-[299px] xl:left-[894px]  flex flex-col gap-5">
 
 <span className = "w-[72px] h-[15px] font-inter font-medium text-sm leading-[15.4px] tracking-[0.84px] text-[#9A9CAA]"> Support </span>
 
@@ -126,7 +126,7 @@ export default function Footer() {
 </div>
 
 
-<div className = "w-[424px] h-[142px]  absolute top-20 left-[1196px]">
+<div className = " w-[400px] xl:w-[424px] h-[142px]  absolute top-[870px] xl:top-20 left-[269px]         xl:left-[1122px]">
 
 <span className = "w-[102px] h-[15px] font-inter font-medium text-sm leading-[15.4px] tracking-[0.84px] text-[#9A9CAA]"> NEWSLETTER</span>
 
@@ -135,13 +135,13 @@ export default function Footer() {
     <input
       type="email"
       placeholder="Your email"
-      className ="w-[285px] h-[46px] border border-[#E1E3E5] rounded-lg text-sm placeholder:text-[#9A9CAA]
+      className =" w-[265px] xl:w-[285px] h-[46px] border border-[#E1E3E5] rounded-lg text-sm placeholder:text-[#9A9CAA]
       placeholder:font-inter placeholder:font-normal placeholder:text-base placeholder:leading-4 placeholder:absolute placehoder:top-[50px] placeholder:left-[20px]     "
     />
     </div>
 
 
-    <button className=" w-[127px] h-[46px] px-6 py-[14px] bg-[#029FAE] rounded-lg absolute top-[35px] left-[297px] flex items-center gap-5 "
+    <button className="w-[117px] xl:w-[127px] h-[46px] px-6 py-[14px] bg-[#029FAE] rounded-lg absolute top-[35px] left-[277px] xl:left-[297px] flex items-center gap-5 "
     >
 <span className = " w-[79px] h-[18px] font-inter text-base leading-[17.6px] text-center text-white"> Subscribe </span>
 
@@ -159,7 +159,7 @@ export default function Footer() {
 
 </div>
 
-<div className = "w-[1920px] h-[75px] absolute top-[343px] flex justify-between items-center px-[300px] py-6 bg-white shadow-custom">
+<div className = "w-[411px] xl:w-[1920px] h-[75px] absolute top-[1094px] xl:top-[343px] flex justify-between items-center px-[300px] py-6 bg-white shadow-custom">
 
 
 <div className = "w-[341px] h-[21px] font-poppins font-normal text-sm text-[#9A9CAA] leading-[21px]">@ 2021 - Blogy - Designed & Develop by <span className = " font-poppins font-normal text-sm leading-[21px] text-[#272343] " >  Zakirsoft </span> 
@@ -169,7 +169,7 @@ export default function Footer() {
 
 
 
-<div className = " w-[227px] h-[27px] absolute top-6 left-[1393px] bg-blend-color gap-[10px] opacity-50">
+<div className = "hidden  xl:w-[227px] xl:h-[27px] xl:absolute xl:top-6 xl:left-[1319px] xl:bg-blend-color xl:gap-[10px] xl:opacity-50">
 
 
 <Image src = {Logos} alt = "Logos"/>

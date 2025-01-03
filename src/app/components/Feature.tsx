@@ -1,5 +1,8 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 
 interface Product {
   id: number;
@@ -7,55 +10,60 @@ interface Product {
   textcolor?: string;
   price: number;
   oldPrice: number | null;
-  image: boolean;
+  image: string;
   badge?: { text: string; color: string };
-  cartIcon: boolean;
+  cartIcon: string;
   cartBg: string;
 }
 
 interface FeatureProps {
-  heading?: string; 
-  products: Product[]; 
+  heading?: string;
+  products: Product[];
   top: string;
 }
 
 export default function Feature({ heading, products, top }: FeatureProps) {
   return (
-    <div className="w-[1920px] h-[461px] absolute "
-    
-    style = {{ top }}>
+    <div className="xl:w-[1920px] xl:h-[461px] absolute" style={{ top }}>
 
       {/* Dynamic Heading */}
-      <div className="w-[1920px] h-[44px] flex justify-between items-center px-[300px]">
-        
+      <div className="w-[1920px] h-[44px] flex justify-between items-center px-4 sm:px-9 md:px-16 lg:px-32 xl:px-56 2xl:px-[300px]">
+
         <span className="w-[286px] h-[35px] font-inter text-[32px] font-semibold leading-[35.2px] text-[#272343]">
           {heading}
         </span>
       </div>
 
-     
+      {/* Products */}
       {products.map((product, index) => (
-        <div
-          key={product.id}
-          className= "w-[312px] h-[377px] absolute top-[84px]" 
-            style = {{ left: `${
-            300 + index * 336
-          }px`}}
-        >
+  <div
+    key={product.id}
+    className="absolute
+     xl:w-[300px] xl:h-[365] 2xl:w-[312px] 2xl:h-[377px]
+       left-4 md:left-16 lg:left-32 xl:top-[84px] 
+      "
 
-          <Link href = {`/Singleproduct/${product.id}`} >
-          <Image
-            src={product.image}
-            alt={product.name}
-            className="w-[312px] h-[312px] rounded-md"
-          />
+    style={{
+      top: index >= 0 ? (window.innerWidth <= 1280 ?`${84 + index * 436}px`: undefined) : undefined,
+      
+      left: index >= 0 ? (window.innerWidth >= 1280 ? `${ 225 + index * 326}px` : undefined) : undefined,
+
+      
+    }}
+  >
+          <Link href={`/Singleproduct/${product.id}`}>
+            <Image
+              src={product.image}
+              alt={product.name}
+              className="w-[312px] h-[312px] rounded-md"
+            />
           </Link>
           {product.badge && (
             <div
               className="w-[49px] h-[26px] absolute top-5 left-5 rounded-[4px] px-[10px] py-[6px] flex gap-[10px]"
               style={{ backgroundColor: product.badge.color }}
             >
-              <span className="font-inter font-medium text-[13px] leading-[14.3px] text-white ">
+              <span className="font-inter font-medium text-[13px] leading-[14.3px] text-white">
                 {product.badge.text}
               </span>
             </div>
@@ -67,9 +75,16 @@ export default function Feature({ heading, products, top }: FeatureProps) {
             >
               {product.name}
             </span>
-            <span className="w-[35px] h-5 font-inter font-semibold text-lg">
-              ${product.price}
-            </span>
+            <div className="w-[66px] h-5 flex items-center gap-1">
+              <span className="w-[35px] h-5 font-inter font-semibold text-lg">
+                ${product.price}
+              </span>
+              {product.oldPrice && (
+                <span className="Sale Price w-[27px] h-[15px] font-inter font-normal text-[14px] leading-[15.4px] text-[#9A9CAA] line-through">
+                  ${product.oldPrice}
+                </span>
+              )}
+            </div>
           </div>
           <div
             className="w-11 h-11 absolute top-[329.5px] left-[268px] rounded-lg"
