@@ -1,7 +1,7 @@
 import React from 'react';
 import plus from "../assets/Plus.png";
 import Image from "next/image";
-import Delivery from "../assets/Delivery.png";
+
 
 
 

@@ -110,13 +110,26 @@ export const R3Products = [
   },
 
   {
-    ...AllProducts.find((product) => product.id === 2),
-    id:10,
+    id: 10,
+    name: "Pink Stool Chair",
+    price: 20,
+    oldPrice: 30,
+    image: Image2,
+    badge: { text: "Sales", color: "#F5813F" },
+    cartIcon: CartIcon,
+    cartBg: "#F0F2F3",
   },
 
   {
-    ...AllProducts.find((product) => product.id === 3),
-    id:11,
+  
+    id: 11,
+    name: "Library Stool Chair",
+    price: 20,
+    oldPrice: null,
+    image: Image3,
+    badge: null,
+    cartIcon: CartIcon,
+    cartBg: "#F0F2F3",
   },
 
   {
