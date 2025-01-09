@@ -1,77 +1,97 @@
-'use client'; 
 
-import { useSearchParams } from 'next/navigation'; 
-import { AllProducts, R2Products, R3Products } from "@/app/components/Productdata";
+import { AllProducts } from "@/app/components/Productdata";
+import { R2Products } from "@/app/components/Productdata";
+import { R3Products } from "@/app/components/Productdata";
 import Image from "next/image";
 import cartlogo from "@/app/assets/Buy 3.png";
 import Link from "next/link";
 
-// Combine all products into a single array
 const AllProduct = [...AllProducts, ...R2Products, ...R3Products];
 
-export default function SingleProduct() {
-  const searchParams = useSearchParams();
-  const id = searchParams.get('id');
-  const productId = parseInt(id || '0', 10);
+// Dynamic Product Page
+export default function SingleProduct({ params }: { params: { id: string } }) {
+  const product = AllProduct.find((p) => p.id === Number(params.id));
 
-  const product = AllProduct.find((p) => p.id === productId);
 
   if (!product) {
     return <div>Product not found</div>;
   }
 
-  // Featured products by predefined IDs
-  const featuredProductIds = [7, 8, 12, 3, 9];
-  const featuredProducts = AllProduct.filter((p) => featuredProductIds.includes(p.id));
+  const featuredProducts = AllProduct.filter((product) =>
+    [7, 8, 9, 11, 12].includes(product.id)
+  );
+
+  
 
   return (
     <div className="flex flex-col items-center gap-6 p-8">
-      {/* Product Details */}
-      <div className="product-details flex flex-col items-start">
-        {product.image && (
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={600}
-            height={400}
-            className="rounded-lg"
-          />
-        )}
-        <h1 className="text-4xl font-bold mt-4">{product.name}</h1>
-        <p className="text-lg text-gray-700 mt-2">Price: $20.00 USD</p>
-        <p className="text-base text-gray-600 mt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim.
+      
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={675}
+        height={607}
+        className="absolute top-[335px] left-[260px] rounded-[10px]"
+      />
+      <span className="w-[541px] h-[132px] absolute top-[335px] left-[1044px] font-inter font-bold text-6xl leading-[66px] text-[#272343]">
+        {product.name}
+      </span>
+      <div className="w-[144px] h-[44px] absolute top-[499px] left-[1044px] rounded-[100px] bg-[#029FAE]">
+        <span className="w-[118px] h-[22px] absolute top-3 left-[13px] text-xl leading-[22px] text-white font-inter font-semibold">
+          $20.00 USD
+        </span>
+      </div>
+      <div className="w-[543px] h-[101px] absolute top-[618px] left-[1046px] opacity-60">
+        <p className="font-inter font-normal text-[22px] leading-[33px] text-[#272343]">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing
         </p>
-        <button className="bg-blue-500 text-white py-2 px-6 rounded-lg mt-4 flex items-center">
-          <Image src={cartlogo} alt="Cart Logo" width={24} height={24} />
-          <span className="ml-2">Add to Cart</span>
+      </div>
+      <div className="w-[212px] h-[63px] absolute top-[751px] left-[1046px] rounded-lg px-6 py-[14px] flex justify-center items-center gap-[9px] bg-[#029FAE]">
+        <Image src={cartlogo} alt="cartlogo" width={29} height={29} />
+        <button className="w-[116px] h-[22px] font-inter font-medium text-xl leading-[22px] text-center text-white">
+          Add to Cart
         </button>
       </div>
 
       {/* Featured Section */}
-      <div className="featured-products mt-12">
-        <h2 className="text-2xl font-bold mb-4">Featured Products</h2>
-        <div className="grid grid-cols-3 gap-4">
-          {featuredProducts.map((featured) => (
-            <div key={featured.id} className="border rounded-lg p-4">
-              {featured.image && (
-                <Image
-                  src={featured.image}
-                  alt={featured.name}
-                  width={200}
-                  height={150}
-                  className="rounded-md"
-                />
-              )}
-              <h3 className="text-lg font-semibold mt-2">{featured.name}</h3>
-              <p className="text-gray-700">Price: $99</p>
+      <div className="w-[1447px] h-[409px] absolute top-[1065px] left-[236px] ">
+        <span className="w-[410px] h-[34px] absolute left-[2px] font-inter text-[28px] font-bold leading-[33.89px] tracking-[5.6px] text-black ">FEATURED PRODUCTS</span>
+
+        <div className="flex justify-center gap-6">
+
+          {featuredProducts.map((featured, index) => (
+            <div
+              key={featured.id}
+              className="w-[270px] h-[306px]  absolute top-[100px] left-[2px]"
+              style={{
+        left: index === 0 ? '0px' : `${index * 300}px`, 
+      }} 
+            >
+              <Image
+                src={featured.image}
+                alt={featured.name}
+                width={270}
+                height={263}
+                className="rounded-[10px]"
+                
+              />
+              <span className="w-[141px] h-[21px] absolute top-[288px] left-[2px] text-base leading-[20.8px] text-[#272343]">
+                Libarary Stool Chair</span>
+
+              <span className="w-7 h-[17px] absolute top-[288px] left-[235px] text-sm leading-[16.94px] text-black font-inter font-bold">$99</span>
             </div>
           ))}
         </div>
-        <div className="mt-4">
+        <div className="w-[75px] h-[31px] absolute top-[100px] lef-[1587px] text-black">
+
           <Link href="/Product">
-            <a className="text-blue-500 underline">View All Products</a>
+            <span className="w-[75px] h-[22px] absolute left-[1589px]   text-black font-inter font-bold text-lg leading-[21.78px]"> 
+              View All
+            </span>
           </Link>
+
+          <span className = "w-[75px] absolute top-[34px] left-[1589px] border-[2px] bg-black "></span>
         </div>
       </div>
     </div>

@@ -55,10 +55,10 @@ export default function Feature({ heading, products, top }: FeatureProps) {
       {products.map((product, index) => (
         <div
           key={product.id}
-          className="absolute xl:w-[300px] xl:h-[365] 2xl:w-[312px] 2xl:h-[377px] left-4 md:left-16 lg:left-32 xl:top-[84px]"
+          className="absolute xl:w-[300px] xl:h-[365] 2xl:w-[312px] 2xl:h-[377px] left-4 md:left-16 lg:left-32  xl:top-[84px]"
           style={{
             top: windowWidth <= 1280 ? `${84 + index * 436}px` : undefined,
-            left: windowWidth >= 1280 ? `${225 + index * 326}px` : undefined,
+            left: windowWidth >= 1280 ? `${300 + index * 326}px` : undefined,
           }}
         >
           <Link href={`/Singleproduct/${product.id}`}>

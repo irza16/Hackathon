@@ -78,9 +78,9 @@ export default function AboutUs() {
 
 
 
-<div className="w-[672px] h-[478px] absolute top-[303px] left-[300px] bg-[#007580]">
+<div className=" w-[572px] 2xl:w-[672px] h-[478px] absolute top-[303px] left-[200px] 2xl:left-[300px] bg-[#007580]">
 
-<div className="w-[495px] h-[161px] absolute top-16 left-16 flex flex-col gap-3">
+<div className="w-[495px] h-[161px] absolute top-16 left-12 2xl:left-16 flex flex-col gap-3">
 
     <span className="w-[325px] h-[39px] font-inter font-bold text-[32px] leading-[38.73px] text-white"> About Us - Comforty </span>
 
@@ -88,7 +88,7 @@ export default function AboutUs() {
 
 </div>
     <button 
-    className="w-[179px] h-14 absolute top-[368px] left-16 px-8 py-4 flex gap-[10px] bg-[#F9F9F9] bg-opacity-15 "
+    className="w-[179px] h-14 absolute top-[368px] left-14 2xl:left-16 px-8 py-4 flex gap-[10px] bg-[#F9F9F9] bg-opacity-15 "
   >
 
 
@@ -105,20 +105,18 @@ export default function AboutUs() {
 
 src={whitechair}
 alt="Woodentoolchair"
-width={619}
-height={478}
-className="absolute top-[303px] left-[1001px]" />
+className="absolute w-[572px] h-[478px] 2xl:w-[619px]  top-[303px] left-[801px] 2xl:left-[1001px]" />
 
 
 
-<div className="Content w-[501px] h-[35px] absolute top-[913px] left-[750px] " >
+<div className="Content w-[501px] h-[35px] absolute top-[913px]  left-[600px] 2xl:left-[750px] " >
 
     <span className="font-inter font-semibold text-[32px] leading-[35.2px] text-[#272343]"> What Makes Our Brand Different</span>
 </div>
 
 
 
-<div className = "w-[1320px] h-[244px] absolute top-[968px] left-[300px] text-[#F9F9F9]">
+<div className = "w-[1320px] h-[244px] absolute top-[968px] left-[200px] 2xl:left-[300px] text-[#F9F9F9]">
 
 
   {block.map((item,id) => (
@@ -160,10 +158,10 @@ style={{left: `${id * 338.88}px` }}
 </div>
 
 
-<span className="w-[332px] h-[35px] absolute top-[1371px] left-[320px] font-inter font-semibold text-[32px] leading-[35.2px] text-[#272343]">Our Popular Products </span>
+<span className="w-[332px] h-[35px] absolute top-[1371px] left-[220px] 2xl:left-[320px] font-inter font-semibold text-[32px] leading-[35.2px] text-[#272343]">Our Popular Products </span>
 
 
-<div className="w-[630px] h-[462px] absolute top-[1449px] left-[320px] flex flex-col gap-6">
+<div className="w-[630px] h-[462px] absolute top-[1449px] left-[220px] 2xl:left-[320px] flex flex-col gap-6">
 
 <Image 
 src ={largesofa}
