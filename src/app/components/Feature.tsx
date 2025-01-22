@@ -1,42 +1,67 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import Image, { StaticImageData } from "next/image";
+import client from '../utils/sanityClient';
+import Image from "next/image";
 import Link from "next/link";
+import CartIcon from "../assets/Group.png";
 
 interface Product {
-  id: number;
-  name: string;
+  _id: string;
+  title: string;
   textcolor?: string;
   price: number;
   oldPrice: number | null;
-  image: StaticImageData;
+  image: string;
   badge?: { text: string; color: string } | null;
-  cartIcon: StaticImageData;
+  cartIcon: string;
   cartBg: string;
 }
 
 interface FeatureProps {
   heading?: string;
-  products: Product[];
   top: string;
+  filterTag: string;
 }
 
-export default function Feature({ heading, products, top }: FeatureProps) {
+export default function Feature({ heading, top, filterTag }: FeatureProps) {
   const [windowWidth, setWindowWidth] = useState(0);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // Set the initial window width after the component mounts
+
+    const fetchProducts = async () => {
+      const query = `*[_type == "products" && $filterTag in tags ] {
+  _id,
+  title,
+  price,
+  "oldPrice": priceWithoutDiscount,
+  "badge" : badge,
+  "image": select(image.asset != null => image.asset->url, null), 
+  "cartIcon": select(cartIcon.asset != null => cartIcon.asset->url, null),
+  "category": select(category != null => category->name, null),  
+  description,
+  stock,
+  tags
+}`;
+      const sanityProducts: Product[] = await client.fetch(query, 
+      { filterTag });
+      console.log('Fetched Products:', sanityProducts);
+      setProducts(sanityProducts);
+    } 
+
+    fetchProducts();
+  }, []);
+    
+  useEffect(() => {
     setWindowWidth(window.innerWidth);
 
-    // Optionally, you could also listen for window resize to adjust dynamically
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
     
-    // Clean up listener on unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -54,22 +79,24 @@ export default function Feature({ heading, products, top }: FeatureProps) {
       {/* Products */}
       {products.map((product, index) => (
         <div
-          key={product.id}
+          key={product._id}
           className="absolute xl:w-[300px] xl:h-[365] 2xl:w-[312px] 2xl:h-[377px] left-4 md:left-16 lg:left-32  xl:top-[84px]"
           style={{
             top: windowWidth <= 1280 ? `${84 + index * 436}px` : undefined,
             left: windowWidth >= 1280 ? `${200 + index * 326}px` : undefined,
           }}
         >
-          <Link href={`/Singleproduct/${product.id}`}>
+          <Link href={`/Singleproduct/${product._id}`}>
             <Image
               src={product.image}
-              alt={product.name}
+              alt={product.title}
+              width={312}
+              height={312}
               className="w-[312px] h-[312px] rounded-md"
             />
           </Link>
 
-          {product.badge && (
+          {product.badge?.text && product.badge?.color && (
             <div
               className="w-[49px] h-[26px] absolute top-5 left-5 rounded-[4px] px-[10px] py-[6px] flex gap-[10px]"
               style={{ backgroundColor: product.badge.color }}
@@ -85,7 +112,7 @@ export default function Feature({ heading, products, top }: FeatureProps) {
               className="h-[21px] font-inter font-normal text-base leading-[20.8px]"
               style={{ color: product.textcolor || "#272343" }}
             >
-              {product.name}
+              {product.title}
             </span>
             <div className="w-[66px] h-5 flex items-center gap-1">
               <span className="w-[35px] h-5 font-inter font-semibold text-lg">
@@ -101,10 +128,10 @@ export default function Feature({ heading, products, top }: FeatureProps) {
 
           <div
             className="w-11 h-11 absolute top-[329.5px] left-[268px] rounded-lg"
-            style={{ backgroundColor: product.cartBg }}
+            style={{ backgroundColor: index === 0 ? "#029FAE" : "#F0F2F3" }}
           >
             <Image
-              src={product.cartIcon}
+              src={CartIcon}
               alt="Add to Cart"
               width={22}
               height={22}

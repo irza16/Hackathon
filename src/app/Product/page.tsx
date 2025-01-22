@@ -1,8 +1,5 @@
 import React from "react";
 import Feature from "../components/Feature";
-import {AllProducts} from "../components/Productdata";
-import {R2Products} from "../components/Productdata";
-import {R3Products} from "../components/Productdata";
 import Image from "next/image";
 import Image1 from "../assets/Image (5).png";
 import Image2 from "../assets/Image (4).png";
@@ -17,11 +14,11 @@ export default function Product () {
 
         <div >
 
-<Feature heading = "All Products" products = {AllProducts} top = "260px" />
+<Feature heading = "All Products" filterTag="featured" top = "260px" />
 
-<Feature products = {R2Products} top = "718px" />
+<Feature  top = "718px" filterTag="R2" />
 
-<Feature products = {R3Products} top = "1179px" />
+<Feature  top = "1179px" filterTag="R3" />
 
 
 <div className = "w-[1515px] 2xl:w-[1924px] h-[754px] absolute top-[1813px] px-[200px] py-[100px] flex gap-[70px] bg-[#1E2832] bg-opacity-5">
